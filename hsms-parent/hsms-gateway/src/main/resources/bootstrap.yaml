@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: gateway # 服务名称
+  profiles:
+    active: dev   #开发环境，这里是dev
+  cloud:
+    nacos:
+      server-addr: yd.haotchen.top:8858 # Nacos地址
+      config:
+        file-extension: yaml # 文件后缀名
+    gateway:
+      routes: # 网关下的路由配置添加
+        - id: service-user  # 路由id,自定义,唯一即可
+          uri: lb://service-user  # 路由的目标地址,lb就是负载均衡,后面跟服务名称
+          predicates: # 路由断言,判断请求是否服务当前配置的路径
+            - Path=/api/v1/user/** # 请求product路径下的所有请求转发到cloud-03product-server
+      globalcors: # 全局跨域处理
+        add-to-simple-url-handler-mapping: true # 解决options请求被拦截问题
+        cors-configurations:
+          '[/**]':
+            allowed-origins: # 允许那些网站进行跨域请求
+              - "*" # 可以使用"*" 匹配所有域名
+
+            allowed-methods: # 允许跨域的请求方法
+              - "GET"
+              - "POST"
+              - "PUT"
+              - "DELETE"
+
+            allowed-headers: "*"
+            allowCredentials: true # 是否允许携带cookie访问
+            maxAge: 360000 # 这次跨域检测的有效期
+server:
+  port: 10000
+
