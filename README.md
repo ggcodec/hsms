@@ -1,7 +1,7 @@
 <img class="logo-img" src="images/img_2.png">
 
 # 租赁房源系统-HSMS
-
+![](https://img.shields.io/github/issues/ggcodec/hsms)
 简述: 
 
 HSMS 是一个房源租赁信息系统,该系统提供了Client端和Manager端双端接口,从设计之初考虑使用Spring Cloud 相关技术栈完成.
@@ -34,17 +34,3 @@ HSMS 是一个房源租赁信息系统,该系统提供了Client端和Manager端�
 
 
 
-<style>
-    h1  {
-        text-align: center;
-        font-size: 26px;
-    }
-
-    .box {
-        /*text-align: center;*/
-        }
-    .logo-img {
-        width: 150px;    
-        margin: auto 0;
-    }
-</style>
