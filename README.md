@@ -29,11 +29,9 @@ HSMS 是一个房源租赁信息系统,该系统提供了Client端和Manager端�
 
 阶段(1): ######->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:45%
 
-| Api功能测试文档  |
+###  Api功能测试文档 ↓↓↓: 
 
-| 链接: |  https://www.apifox.cn/apidoc/shared-e74f2ba1-43d4-429e-87a6-c435864e6c26 |
-
-| 访问密码:  | JzDhPJfd |
+> [链接✋🏻点我](https://www.apifox.cn/apidoc/shared-e74f2ba1-43d4-429e-87a6-c435864e6c26) &nbsp;&nbsp;访问密码:   JzDhPJfd 
 
 
 架构设计图:
