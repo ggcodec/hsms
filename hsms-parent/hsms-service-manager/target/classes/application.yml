@@ -1,0 +1,40 @@
+server:
+  port: 13000
+
+spring:
+  application:
+    name: service-manager
+  profiles:
+    active: dev   #开发环境，这里是dev
+  cloud:
+    nacos:
+      server-addr: yd.haotchen.top:8858 # Nacos地址
+      config:
+        file-extension: yaml # 文件后缀名
+
+  datasource:
+    username: root
+    password: a@199862
+    url: jdbc:mysql://haotchen.top:36000/hsms
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    hikari:
+      # 最小连接数
+      minimum-idle: 10
+      # 最大连接数
+      maximum-pool-size: 100
+      # 自动提交
+      auto-commit: true
+      # 链接超时时间
+      connection-timeout: 30000
+      # 链接的状态保持时间
+      idle-timeout: 60000
+      # 一个链接的最大时长
+      max-lifetime: 60000
+      # 测试链接
+      connection-test-query: SELECT 1
+
+    type: com.zaxxer.hikari.HikariDataSource
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher

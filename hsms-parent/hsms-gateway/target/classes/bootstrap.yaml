@@ -13,7 +13,20 @@ spring:
         - id: service-user  # 路由id,自定义,唯一即可
           uri: lb://service-user  # 路由的目标地址,lb就是负载均衡,后面跟服务名称
           predicates: # 路由断言,判断请求是否服务当前配置的路径
-            - Path=/api/v1/user/** # 请求product路径下的所有请求转发到cloud-03product-server
+            - Path=/api/v1/user/**
+
+        - id: service-auth  # 路由id,自定义,唯一即可
+          uri: lb://service-auth  # 路由的目标地址,lb就是负载均衡,后面跟服务名称
+          predicates: # 路由断言,判断请求是否服务当前配置的路径
+            - Path=/api/v1/auth/**
+
+        - id: service-manager  # 路由id,自定义,唯一即可
+          uri: lb://service-manager  # 路由的目标地址,lb就是负载均衡,后面跟服务名称
+          predicates: # 路由断言,判断请求是否服务当前配置的路径
+            - Path=/api/v1/manager/**
+
+
+
       globalcors: # 全局跨域处理
         add-to-simple-url-handler-mapping: true # 解决options请求被拦截问题
         cors-configurations:

@@ -16,14 +16,16 @@ public interface UserService {
 
     /**
      * 校验登录账户
-     * @param username  用户账号
+     *
+     * @param username        用户账号
      * @param encoderPassword 加密后的密码
      */
-    public void checkUserAccount(String username,String encoderPassword);
+    public void checkUserAccount(String username, String encoderPassword);
 
 
     /**
      * 查询用户信息,密码为空
+     *
      * @param username 用户账号
      * @return Users
      */
@@ -32,26 +34,30 @@ public interface UserService {
 
     /**
      * 修改用户信息,姓名/年龄/加密后的密码,密码如果为空查询后重新设置
-     * @param user  接收用户信息
-     * @return  Users
+     *
+     * @param user 接收用户信息
+     * @return Users
      */
     public void updateUsers(Users user);
 
     /**
      * 删除用户信息
-     * @param username  用户账号
+     *
+     * @param username        用户账号
      * @param encoderPassword 加密后的密码
      */
-    public void deleteUsers(String username,String encoderPassword);
+    public void deleteUsers(String username, String encoderPassword);
 
     /**
      * 新增用户信息
+     *
      * @param user 用户信息
      */
     public void addUsers(Users user);
 
     /**
      * 查询用户信息列表
+     *
      * @return List<Users>
      */
     public List<Users> getUserList();
@@ -62,7 +68,6 @@ public interface UserService {
      * @return List<Users>
      */
     public Page<Users> getUserPage(Integer index, Integer size, Users user);
-
 
 
 }

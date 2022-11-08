@@ -94,6 +94,9 @@ public class UserServiceImpl implements UserService {
         if (user == null) {
             throw new RuntimeException("user 不能为空.");
         }
+        if (StringUtils.isNullOrEmpty(user.getUsername())) {
+            throw new RuntimeException("username 不能为空.");
+        }
         String md5 = null;
         // 判断密码是否为空,如果为空需要设置一下密码
         if (StringUtils.isNullOrEmpty(user.getPassword())) {
@@ -143,12 +146,14 @@ public class UserServiceImpl implements UserService {
 
         // 查询被删除的用户信息是否存在
         Users users = usersMapper.selectOne(wrapper);
-        if (users.getPassword() != encoderPassword) {
-            throw new RuntimeException("参数有误无法删除用户.");
-        }
         if (Objects.isNull(users)) {
             throw new RuntimeException("用户不存在.");
         }
+        // 判断密码是否正确
+        if (users.getPassword().equals(encoderPassword)) {
+            throw new RuntimeException("参数有误无法删除用户.");
+        }
+
 
         // 删除用户
         usersMapper.deleteById(users.getId());
@@ -214,7 +219,7 @@ public class UserServiceImpl implements UserService {
      * @return List<Users>
      */
     @Override
-    public Page<Users> getUserPage(Integer index, Integer size,Users user) {
+    public Page<Users> getUserPage(Integer index, Integer size, Users user) {
         // 参数校验
         if (index < 0 || size < 0) {
             throw new RuntimeException("非法参数,请重试");
@@ -228,6 +233,6 @@ public class UserServiceImpl implements UserService {
 
 
         // 查询所有用户信息内容返回
-        return usersMapper.selectPage(new Page<Users>(index,size),wrapper);
+        return usersMapper.selectPage(new Page<Users>(index, size), wrapper);
     }
 }

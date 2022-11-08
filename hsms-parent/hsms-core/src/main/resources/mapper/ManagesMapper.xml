@@ -3,7 +3,7 @@
 <mapper namespace="com.hsms.core.mapper.ManagesMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.hsms.core.pojo.Manages">
+    <resultMap id="BaseResultMap" type="com.hsms.core.pojo.Manager">
         <id column="id" property="id" />
         <result column="name" property="name" />
         <result column="username" property="username" />

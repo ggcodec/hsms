@@ -1,6 +1,6 @@
 package com.hsms.core.mapper;
 
-import com.hsms.core.pojo.Manages;
+import com.hsms.core.pojo.Manager;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author haotchen
  * @since 2022-11-07
  */
-public interface ManagesMapper extends BaseMapper<Manages> {
+public interface ManagesMapper extends BaseMapper<Manager> {
 
 }
