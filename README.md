@@ -5,7 +5,7 @@
 
 简述: 
 
-HSMS 是一个房源租赁信息系统,该系统提供了Client端和Manager端双端接口,从设计之初考虑使用Spring Cloud 相关技术栈完成.
+HSMS 是一个房源租赁信息系统,该系统提供了Client端和Manager端双端RestFul风格开发接口,以分布式框架模块化设计采用Spring Cloud & Spring Cloud Alibaba相关技术栈完成.
 
 <div class="box">
 

@@ -14,6 +14,7 @@
         <module>hsms-service-user</module>
         <module>hsms-service-auth</module>
         <module>hsms-service-manager</module>
+        <module>hsms-service-staff</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

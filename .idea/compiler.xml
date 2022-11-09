@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="hsms-gateway" />
         <module name="hsms-service-user" />
+        <module name="hsms-service-staff" />
         <module name="hsms-service-manager" />
         <module name="hsms-common" />
         <module name="hsms-service-auth" />

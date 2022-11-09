@@ -24,6 +24,11 @@ spring:
           uri: lb://service-manager  # 路由的目标地址,lb就是负载均衡,后面跟服务名称
           predicates: # 路由断言,判断请求是否服务当前配置的路径
             - Path=/api/v1/manager/**
+            
+        - id: service-staff  # 路由id,自定义,唯一即可
+          uri: lb://service-staff  # 路由的目标地址,lb就是负载均衡,后面跟服务名称
+          predicates: # 路由断言,判断请求是否服务当前配置的路径
+            - Path=/api/v1/staff/**
 
 
 

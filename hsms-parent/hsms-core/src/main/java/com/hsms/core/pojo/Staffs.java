@@ -31,5 +31,4 @@ public class Staffs implements Serializable {
 
     private String state;
 
-
 }

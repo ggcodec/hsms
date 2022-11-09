@@ -1,4 +1,4 @@
-package com.hsms.manager;
+package com.hsms.staff;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -7,17 +7,17 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
- * Manager启动类
+ * Staff模块启动类
  *
  * @author haotchen
- * @time 2022/11/8-17:03
+ * @time 2022/11/9-13:27
  */
 @SpringBootApplication
+@EnableTransactionManagement
 @MapperScan("com.hsms.core.mapper")
 @ComponentScan("com.hsms")
-@EnableTransactionManagement
-public class ManagerApplication {
+public class StaffApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ManagerApplication.class,args);
+        SpringApplication.run(StaffApplication.class,args);
     }
 }
