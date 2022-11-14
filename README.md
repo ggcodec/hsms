@@ -1,11 +1,21 @@
-# 租赁房源系统-HSMS
-[![GitHub issues](https://img.shields.io/github/issues/ggcodec/hsms)](https://github.com/ggcodec/hsms/issues)
-[![GitHub stars](https://img.shields.io/github/stars/ggcodec/hsms)](https://github.com/ggcodec/hsms/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/ggcodec/hsms)](https://github.com/ggcodec/hsms/network)
+<h1 style="text-align: center">租赁房源系统-HSMS</h1>
+
+<div style="text-align: center">
+<img src="https://img.shields.io/github/issues/ggcodec/hsms">
+<img src="https://img.shields.io/github/stars/ggcodec/hsms">
+<img src="https://img.shields.io/github/forks/ggcodec/hsms">
+</div>
 
 简述: 
+> Version: 1.0
+> 
+> Author: HaoTChen 
 
-HSMS 是一个房源租赁信息系统,该系统提供了Client端和Manager端双端RestFul风格开发接口,以分布式框架模块化设计采用Spring Cloud & Spring Cloud Alibaba相关技术栈完成.
+
+HSMS 是一个房源租赁信息系统,该系统提供了Client端和Manager端双端RestFul风格开发接口,
+以分布式框架模块化设计采用Spring Cloud & Spring Cloud Alibaba相关技术栈完成.
+
+
 
 <div class="box">
 
@@ -25,13 +35,21 @@ HSMS 是一个房源租赁信息系统,该系统提供了Client端和Manager端�
 2. Nginx
 </div>
 <hr>
-当前项目进度
 
-阶段(1): ######->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:45%
+### Other: 
+后端地址: https://www.github.com/ggcodec/hsms
 
-###  Api功能测试文档 ↓↓↓: 
+前端地址: ...
+
+完成进度:  #############->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:70%
+
+#####  Api功能测试文档 ↓↓↓: 
 
 > [链接✋🏻点我](https://www.apifox.cn/apidoc/shared-e74f2ba1-43d4-429e-87a6-c435864e6c26) &nbsp;&nbsp;访问密码:   JzDhPJfd 
+##### 文档教程(免费) ↓↓↓
+> 语雀地址: ...
+
+
 
 
 架构设计图:
