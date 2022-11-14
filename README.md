@@ -29,10 +29,12 @@ HSMS 是一个房源租赁信息系统,该系统提供了Client端和Manager端�
 7. Redis
 8. Mysql
 9. Nacos
+10. RabbitMQ
 
 其他技术采用
 1. Docker
 2. Nginx
+3. fastdfs
 </div>
 <hr>
 
