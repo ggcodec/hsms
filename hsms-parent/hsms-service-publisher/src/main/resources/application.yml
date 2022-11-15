@@ -5,6 +5,7 @@ spring:
   application:
     name: service-publisher
 
+
   profiles:
     active: dev   #开发环境，这里是dev
   cloud:

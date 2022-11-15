@@ -63,3 +63,10 @@ fdfs:
     test-on-borrow: true
 fileServer:
   url: http://haotchen.top:9000/
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+

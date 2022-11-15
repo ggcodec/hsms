@@ -1,12 +1,16 @@
 package com.hsms.house.controller;
 
 import com.hsms.core.bean.Result;
+import com.hsms.core.pojo.Images;
 import com.hsms.core.pojo.RequestBodyHouse;
 import com.hsms.house.service.HouseService;
+import com.hsms.house.service.ImageService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 /**
@@ -146,4 +150,44 @@ public class HouseController {
         }
     }
 
+    @Autowired
+    ImageService imageService;
+
+    @GetMapping("/getHouseImages/{id}")
+    public Result<Object> getHouseImages(
+        // Func Parameters
+        @PathVariable("id") Long houseId
+    ){
+        try {
+            // Code values
+            return Result.ok(imageService.queryImageList(houseId));
+        }catch(Exception e){
+            return Result.fail(e.getMessage());
+        }
+    }
+
+
+    @PostMapping("/addHouseImage/{id}")
+    public Result<Object> addHouseImage(
+        // Func Parameters
+        @PathVariable("id") Long id,
+        @RequestBody List<String> urls
+    ){
+        try {
+            // Code values
+            // 先删除相关图片id
+            imageService.deleteImage(id);
+
+            // 在重新新增图片
+            for (String url : urls) {
+                Images images = new Images();
+                images.setUrl(url);
+                images.setHouseId(id);
+                imageService.addImage(id,images);
+            }
+            return Result.ok("新增和修改房源图片完成");
+        }catch(Exception e){
+            return Result.fail(e.getMessage());
+        }
+    }
 }

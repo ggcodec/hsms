@@ -1,12 +1,14 @@
 package com.hsms.house.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.hsms.core.mapper.ImagesMapper;
 import com.hsms.core.pojo.Images;
 import com.hsms.house.service.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -52,5 +54,18 @@ public class ImageServiceImpl implements ImageService {
         LambdaQueryWrapper<Images> wrapper = new LambdaQueryWrapper<Images>()
                 .eq(Images::getHouseId, HouseId);
         imagesMapper.delete(wrapper);
+    }
+
+    /**
+     * 根据房源id查询关联图片
+     *
+     * @param houseId
+     * @return
+     */
+    @Override
+    public List<Images> queryImageList(Long houseId) {
+        QueryWrapper<Images> wrapper = new QueryWrapper<Images>()
+                .eq("house_id", houseId);
+        return imagesMapper.selectList(wrapper);
     }
 }

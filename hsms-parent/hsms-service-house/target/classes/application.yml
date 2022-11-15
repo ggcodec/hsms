@@ -62,4 +62,11 @@ fdfs:
     #向调用者输出“连接”资源时，是否检测有效性
     test-on-borrow: true
 fileServer:
-  url: haotchen.top:9000
+  url: http://haotchen.top:9000/
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+

@@ -14,5 +14,10 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+
+  redis:
+    host: haotchen.top
+    port: 6379
+
 server:
   port: 12000

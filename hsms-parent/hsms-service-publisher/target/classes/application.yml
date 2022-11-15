@@ -1,9 +1,9 @@
 server:
-  port: 14000
+  port: 15000
 
 spring:
   application:
-    name: service-staff
+    name: service-publisher
 
   profiles:
     active: dev   #开发环境，这里是dev

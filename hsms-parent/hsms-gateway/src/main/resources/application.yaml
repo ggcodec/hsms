@@ -3,6 +3,11 @@ spring:
     name: gateway # 服务名称
   profiles:
     active: dev   #开发环境，这里是dev
+
+  redis:
+    host: haotchen.top
+    port: 6379
+
   cloud:
     nacos:
       server-addr: yd.haotchen.top:8858 # Nacos地址
@@ -29,6 +34,11 @@ spring:
           uri: lb://service-staff  # 路由的目标地址,lb就是负载均衡,后面跟服务名称
           predicates: # 路由断言,判断请求是否服务当前配置的路径
             - Path=/api/v1/staff/**
+
+        - id: service-publisher  # 路由id,自定义,唯一即可
+          uri: lb://service-publisher  # 路由的目标地址,lb就是负载均衡,后面跟服务名称
+          predicates: # 路由断言,判断请求是否服务当前配置的路径
+            - Path=/api/v1/publisher/**
 
         - id: service-house  # 路由id,自定义,唯一即可
           uri: lb://service-house  # 路由的目标地址,lb就是负载均衡,后面跟服务名称

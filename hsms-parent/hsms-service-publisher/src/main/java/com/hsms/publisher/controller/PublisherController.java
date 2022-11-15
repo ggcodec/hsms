@@ -58,8 +58,7 @@ public class PublisherController {
     ) {
         try {
             // Code values
-            publisherService.queryPublisherById(id);
-            return Result.ok();
+            return Result.ok(publisherService.queryPublisherById(id));
         } catch (Exception e) {
             return Result.fail(e.getMessage());
         }

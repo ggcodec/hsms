@@ -114,7 +114,7 @@ public class HouseServiceImpl implements HouseService {
                         .le(PriceState::getPrice,max);
 
         List<PriceState> priceStates = priceStateMapper.selectList(wrapper);
-        if (Objects.isNull(priceStates)) {
+        if (Objects.isNull(priceStates) || priceStates.size() <= 0) {
             return null;
         }
 

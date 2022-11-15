@@ -10,10 +10,14 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -34,6 +38,11 @@ public class AuthController {
     // Manager远程调用接口
     @Autowired
     ManagerServerApi managerServerApi;
+
+    @Autowired
+    RedisTemplate redisTemplate;
+
+
 
     @Value("${auth.secret}")
     String secret;
@@ -78,6 +87,10 @@ public class AuthController {
             tokenBody.put("username", users.getUsername());
             tokenBody.put("age", users.getAge());
             String token = JWTUtil.jwtBuilder(tokenBody, secret, 6000 * 1000L);
+            ValueOperations ops = redisTemplate.opsForValue();
+
+            // 将token存入redis时间30分钟
+            ops.set(user.getUsername(),token, Duration.ofMinutes(30));
 
             // 将token 存放到cookie中
             Cookie authToken = new Cookie("authToken", token);
@@ -129,6 +142,11 @@ public class AuthController {
             tokenBody.put("username", manager.getUsername());
             tokenBody.put("state", managerResult.getData().getState());
             String token = JWTUtil.jwtBuilder(tokenBody, secret, 6000 * 1000L);
+            ValueOperations ops = redisTemplate.opsForValue();
+
+
+            // 将token存入redis时间30分钟
+            ops.set(manager.getUsername(),token, Duration.ofMinutes(30));
 
             // 将token 存放到cookie中
             Cookie authToken = new Cookie("authToken", token);
@@ -145,12 +163,27 @@ public class AuthController {
      * @return Result
      */
     @ApiOperation(value = "注销登录",httpMethod = "GET")
-    @GetMapping("/logOut")
+    @GetMapping("/logOut/{username}")
     public Result<Object> logOut(
         // Func Parameters
+        @PathVariable("username") String username,
+        HttpServletResponse response
     ){
         try {
+            ValueOperations ops = redisTemplate.opsForValue();
+
             // Code values
+            String token = (String) ops.get(username);
+
+            if (token != null) {
+                // 删除redis缓存
+                redisTemplate.delete(username);
+            }
+
+            // 将token 存放到cookie中
+            Cookie authToken = new Cookie("authToken", null);
+            response.addCookie(authToken);
+
             return Result.ok("注销成功!");
         }catch(Exception e){
             return Result.fail(e.getMessage());
